@@ -1,0 +1,40 @@
+.main-header {
+    background-color: var(--bg-color);
+    position: sticky;
+    min-width: 15rem ;
+    min-height: 100vh ;
+}
+
+.header-grid {
+    display: grid ;
+    align-items: start;
+    gap: 1.5rem ;
+}
+
+.header-grid div{
+    grid: 1;
+}
+.header-grid nav{
+    grid: 3     ;
+}
+
+.nav-main a{
+    font-weight: 800 ;
+    font-size: larger;
+    padding: 1rem 2rem ;
+}
+
+.active .nav-main a{
+    background-color: #85b2b9 ;
+    border-left: 1rem solid #04282e;
+}
+
+.nav-main a:hover {
+    background-color: #85b2b9 ;
+    border-left: 1rem solid #04282e;
+}
+
+.nav-grid {
+    display: grid ;
+    align-items: center ;
+}
