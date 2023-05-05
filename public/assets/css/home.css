@@ -17,6 +17,20 @@
     ;
 }
 
+@media (max-width : 45rem ) {
+    .home-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            'total total'
+            'waiting done'
+            'list list'
+            'form form '
+            'form form '
+            'form form '
+        ;
+    }
+}
+
 .total-patients {
     grid-area: total;
 }

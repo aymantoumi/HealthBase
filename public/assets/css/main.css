@@ -14,11 +14,16 @@
 }
 
 body {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, 1fr);
 }
 
+header{
+    grid: 1fr;
+}
 section {
     background-color: var(--section-bg);
-    flex: 1;
     padding: 4rem;
+    grid-column: span 4;
 }
