@@ -4,5 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <title>HealthBase </title>
 </head>

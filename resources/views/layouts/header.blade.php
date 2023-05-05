@@ -5,10 +5,10 @@
         </h3>
     </div>
     <nav class="nav-main nav-grid">
-        <a href="{{ route('index') }}" class="{{ request()->is('/') ? 'active' : '' }}"><img
+        <a href="{{ route('index') }}" ><img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAz0lEQVR4nO3TPQrCQBCG4bdQ/KlFvIeVNxC0FawEGxuL1HoCryCWXsNCLbUVtIuFZxC7lYURwkA2mmwsNAMfS8LsPDAh8K81BE5yeq8SsABMJEug7AtoABsFvLIHWlmBNnCNAYzkBnTSAiPgngAYyQMIPhleAVZvDjcqa6CeBNRkz2kAE/lOVRcyzwgYycyFHD0hBxcSekLCAjHfWNdZftCBnJc8kED1BnkgU9VrnwuE3Ne1c1zsqd6+o3frQprAGJiodGP67Xvda+/bOT9YT/KxGvmANZ5WAAAAAElFTkSuQmCC">
             Home</a>
-        <a href="{{ route('patients.index') }}" class="{{ request()->is('/patients') ? 'active' : '' }}"><img
+        <a href="{{ route('patients.index') }}" ><img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaklEQVR4nL2UzytFURDHPyS6byt6FthYiaxIytaCP4AtO2VrQ+K9jez8A/4AC2UhQuz8yJ/gvUiKJIWIF7m6NYtrOvfOUYep6dY535nPmXNmLvhZASgDVaAm3xIQecZ7AU6A2OHHoUDlDEAsvhQCUjUglRCQmgF5/49KzkNASgZkMQQkki6KHX4Uso0j6aKKvFFFKggG+FNrATaAN4/uOgVGfgsoAhcyiM2p9ckc2Ccw4QuoA/aBM8del1HVM9DmA5mWgPmM/RsDtGIB2oEnEfdkaNYNyJXcRqZti/A+RzhjQBIfygKMp0RbOQfp84DMuQKbgOuUaCEHUg88GJBNV+CUEo3iZ41Av1Sejr90iQ+UqNtIPiu6mrR7pwJ9AA3pgOSBXxSk1YAMKv0eMKDWOjTkSwmKHtf0qoawoHIk1f2wOyUYxrZDVUmvdRvLSrDmAUn+a8mb7Mqpd9RAOstfBR49ZsDyW2Asnf0buh3lzqh9ziUAAAAASUVORK5CYII=">
             Patients</a>
         <a href="{{ route('payments') }}"><img
