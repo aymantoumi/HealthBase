@@ -1,0 +1,38 @@
+.home-color div {
+    background-color: var(--dark-bg);
+    border-radius: 1.5rem;
+    padding: 1.5rem  1rem ;
+}
+
+.home-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        'total waiting done'
+        'form form list'
+        'form form list'
+        'form form list'
+        'form form list'
+    ;
+}
+
+.total-patients {
+    grid-area: total;
+}
+
+.patients-waiting {
+    grid-area: waiting;
+}
+
+.patients-done {
+    grid-area: done;
+}
+
+.patients-form {
+    grid-area: form;
+}
+
+.patients-waiting-list {
+    grid-area: list;
+}
