@@ -28,12 +28,7 @@
     transition: ease-in-out 350ms;
 }
 
-.active {
-    background-color: #85b2b9;
-    border-left: 1rem solid #04282e;
-}
-
-.nav-main a:hover {
+.active, .nav-main a:hover {
     background-color: #85b2b9;
     border-left: 1rem solid #04282e;
 }

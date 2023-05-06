@@ -8,49 +8,41 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-        'total waiting done'
-        'form form list'
-        'form form list'
-        'form form list'
-        'form form list'
-        'form form list'
-        'form form list'
-    ;
-}
-
-@media (max-width : 45rem ) {
-    .home-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            'total total'
-            'waiting done'
-            'list list'
-            'form form '
-            'form form '
-            'form form '
-        ;
-    }
-}
-
-.total-patients {
-    grid-area: total;
-}
-
-.patients-waiting {
-    grid-area: waiting;
-}
-
-.patients-done {
-    grid-area: done;
+   grid-template-rows: repeat(5, 1fr);
 }
 
 .patients-form {
-    grid-area: form;
+    grid-column: span 2;
+    grid-row: span 4;
 }
 
 .patients-waiting-list {
-    grid-area: list;
+    grid-row: span 4;
+    padding: 1rem 0.5rem ;
+    overflow-y: scroll ;
+    display: grid ;
+    gap: 1rem ;
+}
+
+.patients-waiting-list::-webkit-scrollbar {
+    min-width: 1rem  ;
+}
+
+.patients-waiting-list::-webkit-scrollbar-track {
+    background-color: darkgrey;
+    padding: 0px 1rem ;
+    border-radius: 5px ;
+}
+
+.patients-waiting-list::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--section-bg);
+    border-radius: 1rem ;
+}
+
+.waiting-patient {
+    background-color: var(--section-bg) !important;
+    min-height: 2rem ;
 }
 
 .patients-form form {
@@ -63,7 +55,7 @@
     gap: 1rem;
 }
 
-.patients-form form div input {
+.patients-form form div :is(input, select)  {
     padding: .5rem 1rem ;
     border-radius: 1rem ;
     font-weight: 800 ;
@@ -75,3 +67,25 @@
     box-shadow: 5px 5px 20px 2px var(--dark-bg);
 }
 
+
+.grid-card {
+    display: grid ;
+    gap: .5rem ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr );
+    color: var(--section-bg);
+    font-weight: 800 ;
+    font-size: x-large;
+}
+
+.grid-card div {
+    padding: .2rem ;
+}
+
+.grid-card .icon {
+    grid-row: span 2  ;
+}
+
+.grid-card :is(.title, .value)  {
+    grid-column: span 3;
+} 
