@@ -14,6 +14,8 @@
         'form form list'
         'form form list'
         'form form list'
+        'form form list'
+        'form form list'
     ;
 }
 
@@ -50,3 +52,26 @@
 .patients-waiting-list {
     grid-area: list;
 }
+
+.patients-form form {
+    display: grid;
+    grid-template-columns: 1fr ;
+}
+.patients-form form div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) ;
+    gap: 1rem;
+}
+
+.patients-form form div input {
+    padding: .5rem 1rem ;
+    border-radius: 1rem ;
+    font-weight: 800 ;
+    font-size: larger;
+    background-color: var(--section-bg);
+}
+
+.shadow {
+    box-shadow: 5px 5px 20px 2px var(--dark-bg);
+}
+
