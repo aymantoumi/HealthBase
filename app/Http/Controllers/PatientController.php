@@ -12,7 +12,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('Patients', ['page' => 'Patients']);
+        return view('patients', ['page' => 'Patients']);
     }
 
     /**
