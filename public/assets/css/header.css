@@ -1,7 +1,6 @@
 /* Header */
 .main-header {
-    background-color: var(--bg-color);
-    position: sticky;
+    background-color: var(--secend-bg);
     min-width: 15rem;
     min-height: 100vh;
 }

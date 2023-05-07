@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patien;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
-class PatienController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('patients', ['page' => 'Patients']);
+        return view('Patients', ['page' => 'Patients']);
     }
 
     /**
@@ -34,7 +34,7 @@ class PatienController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Patien $patien)
+    public function show(Patient $Patient)
     {
         //
     }
@@ -42,7 +42,7 @@ class PatienController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Patien $patien)
+    public function edit(Patient $Patient)
     {
         //
     }
@@ -50,15 +50,26 @@ class PatienController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patien $patien)
+    public function update(Request $request, Patient $Patient)
     {
         //
+    }
+
+    public function changeStatus(Request $request, Patient $Patient) 
+    {
+        // $Patient = Patient::find($Patient);
+
+        $Patient->Status = $request->status;
+
+        $Patient->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Patien $patien)
+    public function destroy(Patient $Patient)
     {
         //
     }

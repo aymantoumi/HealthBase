@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
+use Dotenv\Store\File\Paths;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['page' => 'home']);
+        $Patient = Patient::all();
+        $TotalPatients = Patient::count();
+        $WaitingPatients = Patient::where('status', 0)->count();
+        $DonePatients = Patient::where('status', 1)->count();
+        return view('home', ['page' => 'home', 'patients' => $Patient, 'TotalPatients' => $TotalPatients, 'waiting' => $WaitingPatients, 'done' => $DonePatients]);
     }
 
     /**
@@ -43,7 +49,7 @@ class HomeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //    
     }
 
     /**
@@ -51,7 +57,7 @@ class HomeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // 
     }
 
     /**

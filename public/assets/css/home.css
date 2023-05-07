@@ -1,5 +1,5 @@
 .home-color div {
-    background-color: var(--dark-bg);
+    background-color: var(--secend-bg);
     border-radius: 1.5rem;
     padding: 1.5rem  1rem ;
 }
@@ -42,12 +42,14 @@
 
 .waiting-patient {
     background-color: var(--section-bg) !important;
-    min-height: 2rem ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr ) ;
 }
 
 .patients-form form {
     display: grid;
     grid-template-columns: 1fr ;
+    grid-template-rows: auto ;
 }
 .patients-form form div {
     display: grid;
@@ -60,11 +62,21 @@
     border-radius: 1rem ;
     font-weight: 800 ;
     font-size: larger;
+    border: none ;
+    outline: 2px solid var(--section-bg);
     background-color: var(--section-bg);
 }
 
+.patients-form form div input[type='checkbox'] {
+    aspect-ratio: 1 ;
+    width: 1rem ;
+    border: none ;
+    border-radius: 1rem ;
+    padding: .2rem;
+}
+
 .shadow {
-    box-shadow: 5px 5px 20px 2px var(--dark-bg);
+    box-shadow: 5px 5px 20px 2px var(--secend-bg-bg);
 }
 
 
@@ -73,7 +85,7 @@
     gap: .5rem ;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr );
-    color: var(--section-bg);
+    color: var(--main-bg);
     font-weight: 800 ;
     font-size: x-large;
 }
@@ -89,3 +101,16 @@
 .grid-card :is(.title, .value)  {
     grid-column: span 3;
 } 
+
+.button {
+    padding: .8rem 2.5rem ;
+    font-weight: 900 ;
+    font-size: 1.4rem ;
+    max-width: fit-content;
+    border-radius: 1rem ;
+    border: none;
+}
+
+.patients-form form :last-child {
+    justify-items: center ;    
+}

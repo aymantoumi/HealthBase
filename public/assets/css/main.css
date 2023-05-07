@@ -1,8 +1,8 @@
 
 :root {
-    --bg-color: #088395;
-    --section-bg: #CDF2F8;
-    --dark-bg: #0A4D68;
+    --main-bg: #cdf8ff;
+    --section-bg: #e0f5f8;
+    --secend-bg: #3c6170;
 }
 
 * {
@@ -19,12 +19,9 @@ body {
     grid-template-columns: repeat(5, 1fr);
 }
 
-header{
-    grid: 1fr;
-}
 section {
     background-color: var(--section-bg);
-    padding: 1rem 4rem;
+    padding: 1rem 4rem ;
     grid-column: span 4;
     max-height: 100vh;
 }
