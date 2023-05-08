@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Action;
 use App\Models\Patient;
 use Dotenv\Store\File\Paths;
 use Illuminate\Http\Request;
@@ -33,8 +34,26 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $patient = new Patient();
+        $action = new  Action();
+    
+        $patient->First_Name = $request->firstName;
+        $patient->Last_Name = $request->lastName;
+        $patient->CIN = $request->CIN;
+        $patient->Birth_Date = $request->birthDate;
+        $patient->Gender = $request->gender;
+        $patient->Category = $request->category;
+        $patient->Phone = $request->phoneNumber;
+        $patient->Payment = $request->payment;
+    
+        $patient->save();
+    
+        $action = new Action();
+        $action->Action = $request->reason;
+        $patient->actions()->save($action);
+    
+         return redirect()->back() ;
+    }    
 
     /**
      * Display the specified resource.

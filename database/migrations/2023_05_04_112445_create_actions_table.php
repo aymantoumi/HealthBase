@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('actions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('Patien_ID')->constrained('patients', 'id');
-            $table->string('Action', 20);
+            $table->string('Action', 50);
             $table->timestamps();
         });
     }

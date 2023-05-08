@@ -44,6 +44,9 @@
     background-color: var(--section-bg) !important;
     display: grid;
     grid-template-columns: repeat(3, 1fr ) ;
+    align-items: center;
+    align-content: center;
+    max-height: 5.5rem ;
 }
 
 .patients-form form {
@@ -55,6 +58,17 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr) ;
     gap: 1rem;
+}
+
+.patients-form form :nth-child(5) {
+    grid-template-columns: repeat(3, 1fr) ;
+}
+
+.patients-form form h1 {
+    font-size: 2.5rem ;
+    font-weight: bolder ;
+    text-align: center ;
+    color: var(--main-bg);
 }
 
 .patients-form form div :is(input, select)  {
@@ -76,7 +90,7 @@
 }
 
 .shadow {
-    box-shadow: 5px 5px 20px 2px var(--secend-bg-bg);
+    box-shadow: 5px 5px 20px 2px var(--secend-bg);
 }
 
 
@@ -113,4 +127,10 @@
 
 .patients-form form :last-child {
     justify-items: center ;    
+}
+
+.done-button {
+    border-radius: 100% ;
+    border: none ;
+    background-color: transparent ;
 }
