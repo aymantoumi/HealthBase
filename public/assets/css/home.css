@@ -1,14 +1,14 @@
 .home-color div {
     background-color: var(--secend-bg);
     border-radius: 1.5rem;
-    padding: 1.5rem  1rem ;
+    padding: 1.5rem 1rem;
 }
 
 .home-grid {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .patients-form {
@@ -18,75 +18,68 @@
 
 .patients-waiting-list {
     grid-row: span 4;
-    padding: 1rem 0.5rem ;
-    overflow-y: scroll ;
-    display: grid ;
-    gap: 1rem ;
+    padding: 1rem 0.5rem;
+    overflow-y: scroll;
+    display: grid;
+    gap: 1rem;
 }
 
 .patients-waiting-list::-webkit-scrollbar {
-    min-width: 1rem  ;
+    min-width: 1rem;
 }
 
 .patients-waiting-list::-webkit-scrollbar-track {
     background-color: darkgrey;
-    padding: 0px 1rem ;
-    border-radius: 5px ;
+    padding: 0px 1rem;
+    border-radius: 5px;
 }
 
 .patients-waiting-list::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: var(--section-bg);
-    border-radius: 1rem ;
+    border-radius: 1rem;
 }
 
 .waiting-patient {
     background-color: var(--section-bg) !important;
     display: grid;
-    grid-template-columns: repeat(3, 1fr ) ;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     align-content: center;
-    max-height: 5.5rem ;
+    max-height: 5.5rem;
 }
 
 .patients-form form {
     display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: auto ;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
 }
+
 .patients-form form div {
     display: grid;
-    grid-template-columns: repeat(2, 1fr) ;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
 .patients-form form :nth-child(5) {
-    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .patients-form form h1 {
-    font-size: 2.5rem ;
-    font-weight: bolder ;
-    text-align: center ;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-align: center;
     color: var(--main-bg);
 }
 
-.patients-form form div :is(input, select)  {
-    padding: .5rem 1rem ;
-    border-radius: 1rem ;
-    font-weight: 800 ;
+.patients-form form div :is(input, select) {
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 800;
     font-size: larger;
-    border: none ;
+    border: none;
     outline: 2px solid var(--section-bg);
     background-color: var(--section-bg);
-}
-
-.patients-form form div input[type='checkbox'] {
-    aspect-ratio: 1 ;
-    width: 1rem ;
-    border: none ;
-    border-radius: 1rem ;
-    padding: .2rem;
 }
 
 .shadow {
@@ -95,42 +88,41 @@
 
 
 .grid-card {
-    display: grid ;
-    gap: .5rem ;
+    display: grid;
+    gap: .5rem;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr );
+    grid-template-rows: repeat(2, 1fr);
     color: var(--main-bg);
-    font-weight: 800 ;
+    font-weight: 800;
     font-size: x-large;
 }
 
 .grid-card div {
-    padding: .2rem ;
+    padding: .2rem;
 }
 
 .grid-card .icon {
-    grid-row: span 2  ;
+    grid-row: span 2;
 }
 
-.grid-card :is(.title, .value)  {
+.grid-card :is(.title, .value) {
     grid-column: span 3;
-} 
+}
 
 .button {
-    padding: .8rem 2.5rem ;
-    font-weight: 900 ;
-    font-size: 1.4rem ;
-    max-width: fit-content;
-    border-radius: 1rem ;
+    padding: .8rem 2.5rem;
+    font-weight: 900;
+    font-size: 1.4rem;
+    border-radius: 1rem;
     border: none;
 }
 
 .patients-form form :last-child {
-    justify-items: center ;    
+    justify-items: center;
 }
 
 .done-button {
-    border-radius: 100% ;
-    border: none ;
-    background-color: transparent ;
+    border-radius: 100%;
+    border: none;
+    background-color: transparent;
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Action;
 use App\Models\Patient;
-use Dotenv\Store\File\Paths;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

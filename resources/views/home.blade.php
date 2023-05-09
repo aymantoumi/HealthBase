@@ -81,7 +81,7 @@
                 </div>
                 <div>
                     <button type="submit" class="button green">Submit</button>
-                    <button   class="button red">Cansel</button>
+                    <button class="button red">Cancel</button>
                 </div>
             </form>
         </div>

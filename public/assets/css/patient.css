@@ -1,0 +1,53 @@
+.patients-section-grid {
+    display: grid ;
+    grid-template-rows: 1fr  8fr;
+    gap: 1rem ;
+}
+.search-bar input{
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 800;
+    font-size: larger;
+    border: none;
+    outline: 2px solid var(--secend-bg);
+    background-color: var(--secend-bg);
+    color: var(--main-bg);
+}
+
+.search-bar input::placeholder {
+    color: var(--main-bg);
+}
+
+.search-bar button {
+    background: transparent ;
+    border: none ;
+}
+
+.search-grid form {
+    display: grid ;
+    align-items: center ;
+    grid-template-columns: 2fr 1fr;
+}
+
+.patients-list {
+    background-color: var(--secend-bg);
+    border-radius: 2rem ;
+    padding: 1.5rem ;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.patients-list-grid table tr {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr ) ;
+    gap: .5rem  ;
+    margin: .3rem 0rem ;
+}
+
+.patients-list table th , .patients-list table td {
+    background-color: var(--main-bg);
+    padding: 0.5rem  1rem ;
+    border-radius: .5rem ;
+}
+
+

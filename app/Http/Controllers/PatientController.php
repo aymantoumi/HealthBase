@@ -12,7 +12,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('patients', ['page' => 'Patients']);
+        $patients = Patient::all();
+        return view('patients', ['page' => 'Patients', 'patients' => $patients]);
     }
 
     /**
