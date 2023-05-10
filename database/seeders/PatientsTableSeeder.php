@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Patient;
+use App\Models\Action;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +22,7 @@ class PatientsTableSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $patiens = [];
+        $patients = [];
 
         // Generate test data
         for ($i = 0; $i < 100; $i++) {
@@ -30,7 +31,7 @@ class PatientsTableSeeder extends Seeder
             $categories = ['Adult', 'Child'];
             $genders = ['Male', 'Female'];
             $phone = rand(100, 999) . '-' . rand(100, 999) . '-' . rand(1000, 9999);
-        
+
             $patient = [
                 'First_Name' => $firstNames[array_rand($firstNames)],
                 'Last_Name' => $lastNames[array_rand($lastNames)],
@@ -41,16 +42,22 @@ class PatientsTableSeeder extends Seeder
                 'Phone' => $phone,
                 'Payment' => rand(25, 150),
             ];
-        
-            $patiens[] = $patient;
+
+            $patients[] = $patient;
         }
-        
+
         // Insert test data into database
-        foreach ($patiens as $patientData) {
+        foreach ($patients as $patientData) {
             $patient = new Patient();
             $patient->fill($patientData);
             $patient->save();
-        }
         
+            // Generate a random action for the patient
+            $actions = ['Appointment', 'Prescription', 'Test'];
+            $action = new Action();
+            $action->Patien_ID = $patient->id;
+            $action->Action = $actions[array_rand($actions)];
+            $action->save();
+        }
     }
 }

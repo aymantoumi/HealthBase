@@ -1,6 +1,10 @@
 @extends('layouts.main')
 
 @section('Content')
+    @php
+        use Carbon\Carbon;
+    @endphp
+
     <section class="patients-section-grid">
 
         <div class="search-bar search-grid">
@@ -15,41 +19,67 @@
         </div>
 
         <div class="patients-list patients-list-grid">
-            <table>
-                <tr class="titles">
-                    <th>CIN</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Category</th>
-                    <th>Phone Number</th>
-                    <th>Payment</th>
-                    <th>Date</th>
-                </tr>
+            <div class="titles-grid">
+                <div class="title">
+                    <span>CIN</span>
+                </div>
+                <div class="title">
+                    <span>First Name</span>
+                </div>
+                <div class="title">
+                    <span>Last Name</span>
+                </div>
+                <div class="title">
+                    <span>Age</span>
+                </div>
+                <div class="title">
+                    <span>Gender</span>
+                </div>
+                <div class="title">
+                    <span>Category</span>
+                </div>
+                <div class="title">
+                    <span>Telephone</span>
+                </div>
+                <div class="title">
+                    <span>Payment</span>
+                </div>
+                <div class="title">
+                    <span>Date</span>
+                </div>
+            </div>
+        </div>
+        <div class="patients-box">
+
+            @foreach ($patients as $patient)
                 @php
-                    use Carbon\Carbon;
+                    $birth_date = Carbon::parse($patient->Birth_Date);
+                    $age = $birth_date->diffInYears(Carbon::now());
                 @endphp
-
-                @foreach ($patients as $patient)
-                    @php
-                        $birth_date = Carbon::parse($patient->Birth_Date);
-                        $age = $birth_date->diffInYears(Carbon::now());
-                    @endphp
-                    <tr>
-                        <td>{{ $patient->CIN }}</td>
-                        <td>{{ $patient->First_Name }}</td>
-                        <td>{{ $patient->Last_Name }}</td>
-                        <td>{{ $age }}</td>
-                        <td>{{ $patient->Gender }}</td>
-                        <td>{{ $patient->Category }}</td>
-                        <td>{{ $patient->Phone }}</td>
-                        <td>{{ $patient->Payment }}</td>
-                        <td>{{ $patient->created_at }}</td>
-                    </tr>
-                @endforeach
-
-            </table>
+                <div class="view">
+                        <a href="{{ route('patients.show', $patient->id) }}">
+                            <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABH0lEQVR4nO2UvU5CQRCFv4poxELFzkIT8TVAan9ewehDGJFefBsE30ILLbil2lzt4QEwk5xCNzOXxcJQ8CWT3MycM7uZ3buwYtnZBq6AIVAAU0Wh3KU0C7MO9NRsNidMcytPFnvAc0bjWRKvwMG85kfAl2MeAC1gQ9HWiFKdeZtR813gwzFdV2yo6+jfgYYnfgx2btSAe+ATKIG+csbI8T2QcB7MtaV636lZzjgOvKc/FygCUV310qlZztgMvON/XeAsELUrRnSnWifwnqTn4F27oWo1LVI6h1x1OX7R0BVLxV1ieo7+DdiJDM3gRxvpttQVnWDn5j0k46l4+sNT8QLsk8maRjPNaDwBbuRZmC3gQoc2VrOJvgeqmWbFEvMNriXJVcp1zQIAAAAASUVORK5CYII=">
+                        </a>
+                    <div>
+                        <a href="{{ route('patients.show', $patient->id) }}">
+                            {{ $patient->CIN }}
+                        </a>
+                    </div>
+                </div>
+                <div>{{ $patient->First_Name }}</div>
+                <div>{{ $patient->Last_Name }}</div>
+                <div>{{ $age }}</div>
+                <div>{{ $patient->Gender }}</div>
+                <div>
+                    @foreach ($patient->actions as $action)
+                        {{ $action->Action }}<br>
+                    @endforeach
+                </div>
+                <div>{{ $patient->Phone }}</div>
+                <div>{{ $patient->Payment }}</div>
+                <div>{{ $patient->created_at }}</div>
+            @endforeach
         </div>
 
     </section>

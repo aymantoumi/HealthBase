@@ -1,9 +1,10 @@
 .patients-section-grid {
-    display: grid ;
-    grid-template-rows: 1fr  8fr;
-    gap: 1rem ;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    gap: 1rem;
 }
-.search-bar input{
+
+.search-bar input {
     padding: .5rem 1rem;
     border-radius: 1rem;
     font-weight: 800;
@@ -19,35 +20,96 @@
 }
 
 .search-bar button {
-    background: transparent ;
-    border: none ;
+    background: transparent;
+    border: none;
 }
 
 .search-grid form {
-    display: grid ;
-    align-items: center ;
+    display: grid;
+    align-items: center;
     grid-template-columns: 2fr 1fr;
 }
 
-.patients-list {
-    background-color: var(--secend-bg);
-    border-radius: 2rem ;
-    padding: 1.5rem ;
-    overflow-y: scroll;
-    text-align: center;
-}
-
-.patients-list-grid table tr {
+.titles-grid,
+.patients-box {
     display: grid;
-    grid-template-columns: repeat(9, 1fr ) ;
-    gap: .5rem  ;
-    margin: .3rem 0rem ;
+    grid-template-columns: 1.5fr repeat(5, 1fr) 1.5fr 1fr 1.5fr;
+    gap: .5rem;
 }
 
-.patients-list table th , .patients-list table td {
+.title {
+    background-color: var(--secend-bg);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--main-bg);
+}
+
+.patients-box {
+    overflow-y: scroll;
+    background-color: var(--secend-bg);
+    padding: .3rem 0rem;
+    border-radius: 1rem;
+    padding: 0rem, 5rem;
+}
+
+.patients-box div {
+    padding: .4rem 0rem;
+    text-align: center;
     background-color: var(--main-bg);
-    padding: 0.5rem  1rem ;
-    border-radius: .5rem ;
+    border-radius: .5rem;
 }
 
+.view {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    background: transparent !important;
+}
 
+/* 
+------------- SINGL PATIENT GSTYLE -------------
+*/
+
+.patients-update-form div {
+    border: 2px solid red;
+}
+
+.patients-update-form {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns:  1fr;
+    background-color: var(--secend-bg);
+}
+
+.patients-update-form form {
+    display: grid;
+    gap: 1rem;
+}
+
+.patients-update-form form div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.patients-update-form form :nth-child(5) {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.patients-update-form form :last-child {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.patients-update-form form div :is(input, select) {
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 800;
+    font-size: larger;
+    border: none;
+    outline: 2px solid var(--section-bg);
+    background-color: var(--section-bg);
+}

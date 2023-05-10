@@ -12,7 +12,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::all();
+        $patients = Patient::with('actions')->get();
         return view('patients', ['page' => 'Patients', 'patients' => $patients]);
     }
 
@@ -35,9 +35,14 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Patient $Patient)
+    public function show( $Patient)
     {
-        //
+        $patient = Patient::with('actions')->findorfail($Patient);
+
+        return view('patient',[
+            'page' => 'Patients',
+            'patient' => $patient
+        ]);
     }
 
     /**
