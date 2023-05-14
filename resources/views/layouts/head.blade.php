@@ -6,5 +6,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/patient.css') }}">
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <title>HealthBase </title>
 </head>

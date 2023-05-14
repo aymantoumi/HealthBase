@@ -33,7 +33,7 @@
 .titles-grid,
 .patients-box {
     display: grid;
-    grid-template-columns: 1.5fr repeat(5, 1fr) 1.5fr 1fr 1.5fr;
+    grid-template-columns: 1.5fr repeat(6, 1fr) 1.5fr;
     gap: .5rem;
 }
 
@@ -71,9 +71,42 @@
 /* 
 ------------- SINGL PATIENT GSTYLE -------------
 */
+.patient-update-grid div {
+    border-radius: 1rem ;
+}
 
-.patients-update-form div {
-    border: 2px solid red;
+.patient-update-grid {
+    display: grid ;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr );
+    gap: 1rem ;
+    text-align: center;
+    color: var(--main-bg);
+    padding: 1rem ;
+}
+
+
+.patient-grid {
+    grid-row: span 2;
+    grid-column: span 3;
+}
+
+.patients-update-form-grid{
+    grid-row: span 3;
+    grid-column: span 2; 
+}
+
+.side-form {
+    grid-row: span 3;
+    background-color: var(--secend-bg );
+}
+
+.side-form form {
+    height: 100% ;
+    display: grid ;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem ;
 }
 
 .patients-update-form {
@@ -104,7 +137,7 @@
     justify-items: center;
 }
 
-.patients-update-form form div :is(input, select) {
+.patients-update-form form div :is(input, select), .side-form form div :is(input, select) {
     padding: .5rem 1rem;
     border-radius: 1rem;
     font-weight: 800;
@@ -112,4 +145,57 @@
     border: none;
     outline: 2px solid var(--section-bg);
     background-color: var(--section-bg);
+}
+
+.side-card {
+    display: grid ;
+    align-items: center ;
+    justify-items: center ;
+    font-size: 2rem ;
+    font-weight: 800 ;
+    color: rgb(188, 210, 216);
+}
+.patient-grid {
+    display: grid ;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem ;
+}
+
+.patient-data div{
+    background-color: var(--secend-bg);
+}
+
+.main-card {
+    grid-column: span 3;
+    padding: .2rem 1rem ;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: start;
+    align-items: center;
+}
+.content-title {
+    font-weight: 800 ;
+    font-size: 1.6rem !important ;
+    color: rgb(188, 210, 216) ;
+}
+.main-card span {
+    font-weight: 600 ;
+    font-size: 1.2rem ;
+}
+.actions-card {
+    display: grid ;
+    overflow-y: scroll ;
+    padding: .5rem 0.1rem ;
+    gap: .2rem ;
+}
+.action-card {
+    color: var(--secend-bg);
+    background-color: var(--main-bg) !important;
+    height: fit-content ;
+    padding: .5rem 0rem ;
+}
+
+.s-button {
+    transform: scale(.8);
 }

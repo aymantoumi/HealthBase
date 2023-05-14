@@ -11,6 +11,6 @@ class Patient extends Model
 
     public function actions()
     {
-        return $this->hasMany(Action::class, 'Patien_ID');
+        return $this->hasMany(Action::class, 'Patient_ID');
     }
 }

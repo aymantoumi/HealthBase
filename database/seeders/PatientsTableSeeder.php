@@ -40,23 +40,24 @@ class PatientsTableSeeder extends Seeder
                 'Birth_Date' => date('Y-m-d', strtotime('-' . rand(1, 40) . ' years')),
                 'Gender' => $genders[array_rand($genders)],
                 'Phone' => $phone,
-                'Payment' => rand(25, 150),
             ];
 
             $patients[] = $patient;
         }
 
         // Insert test data into database
+        // Insert test data into database
         foreach ($patients as $patientData) {
             $patient = new Patient();
             $patient->fill($patientData);
             $patient->save();
-        
+
             // Generate a random action for the patient
             $actions = ['Appointment', 'Prescription', 'Test'];
             $action = new Action();
             $action->Patien_ID = $patient->id;
             $action->Action = $actions[array_rand($actions)];
+            $action->Payment = rand(25, 150);
             $action->save();
         }
     }

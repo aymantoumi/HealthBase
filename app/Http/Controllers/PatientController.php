@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Action;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::with('actions')->get();
+        $patients = Patient::with('actions')->get()->sortDesc();
         return view('patients', ['page' => 'Patients', 'patients' => $patients]);
     }
 
@@ -29,17 +30,27 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newAction = new Action();
+
+        $newAction->Patient_ID = $request->patient_id;
+        $newAction->Action = $request->reason;
+        $newAction->Payment = $request->payment;
+
+        $newAction->save();
+
+        return redirect()->back()->with('message', 'Your request has been processed.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show( $Patient)
+    public function show($patientId)
     {
-        $patient = Patient::with('actions')->findorfail($Patient);
+        $patient = Patient::with(['actions' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->findOrFail($patientId);
 
-        return view('patient',[
+        return view('patient', [
             'page' => 'Patients',
             'patient' => $patient
         ]);
@@ -56,12 +67,23 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patient $Patient)
+    public function update(Request $request, Patient $patient)
     {
-        //
+        $patient->First_Name = $request->input('firstName');
+        $patient->Last_Name = $request->input('lastName');
+        $patient->CIN = $request->input('CIN');
+        $patient->Birth_Date = $request->input('birthDate');
+        $patient->Gender = $request->input('gender');
+        $patient->Category = $request->input('category');
+        $patient->Phone = $request->input('phoneNumber');
+
+        $patient->save();
+
+        return redirect()->back()->with('message', 'Patient updated successfully');
     }
 
-    public function changeStatus(Request $request, Patient $Patient) 
+
+    public function changeStatus(Request $request, Patient $Patient)
     {
         // $Patient = Patient::find($Patient);
 
@@ -75,8 +97,11 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Patient $Patient)
+    public function destroy(Patient $patient)
     {
-        //
+        $patient->actions()->delete(); // delete all associated actions
+        $patient->delete(); // delete the patient record
+
+        return redirect()->route('patients.index')->with('message', 'Patient deleted successfully');
     }
 }

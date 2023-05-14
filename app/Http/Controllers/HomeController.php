@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $Patient = Patient::all();
+        $Patient = Patient::all()->sortDesc();
         $TotalPatients = Patient::count();
         $WaitingPatients = Patient::where('status', 0)->count();
         $DonePatients = Patient::where('status', 1)->count();
@@ -43,12 +43,12 @@ class HomeController extends Controller
         $patient->Gender = $request->gender;
         $patient->Category = $request->category;
         $patient->Phone = $request->phoneNumber;
-        $patient->Payment = $request->payment;
-    
+        
         $patient->save();
-    
+        
         $action = new Action();
         $action->Action = $request->reason;
+        $action->Payment = $request->payment;
         $patient->actions()->save($action);
     
          return redirect()->back() ;

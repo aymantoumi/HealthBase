@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PaymentsController;
@@ -20,5 +21,6 @@ Route::resource('/', HomeController::class);
 
 Route::resource('/patients', PatientController::class);
 Route::put('/patients/{patient}/done', [PatientController::class, 'changeStatus'])->name('patients.changeStatus');
+Route::delete('/actions/{action}', [ActionController::class, 'delete'])->name('actions.delete');
 
 Route::get('/payments', [PaymentsController::class, 'index'])->name('payments');
