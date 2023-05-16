@@ -55,7 +55,7 @@ class PatientsTableSeeder extends Seeder
             // Generate a random action for the patient
             $actions = ['Appointment', 'Prescription', 'Test'];
             $action = new Action();
-            $action->Patien_ID = $patient->id;
+            $action->Patient_ID = $patient->id;
             $action->Action = $actions[array_rand($actions)];
             $action->Payment = rand(25, 150);
             $action->save();

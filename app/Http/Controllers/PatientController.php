@@ -17,6 +17,20 @@ class PatientController extends Controller
         return view('patients', ['page' => 'Patients', 'patients' => $patients]);
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $patients = Patient::with('actions')
+            ->where('CIN', 'LIKE', '%' . $search . '%')
+            ->orWhere('First_Name', 'LIKE', '%' . $search . '%')
+            ->orWhere('Last_Name', 'LIKE', '%' . $search . '%')
+            ->orWhere('Phone', 'LIKE', '%' . $search . '%')
+            ->get();
+
+        return view('patients', compact('patients'), ['page' => 'Patients']);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

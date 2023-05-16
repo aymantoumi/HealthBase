@@ -22,5 +22,6 @@ Route::resource('/', HomeController::class);
 Route::resource('/patients', PatientController::class);
 Route::put('/patients/{patient}/done', [PatientController::class, 'changeStatus'])->name('patients.changeStatus');
 Route::delete('/actions/{action}', [ActionController::class, 'delete'])->name('actions.delete');
+Route::get('/search', [PatientController::class, 'search']);
 
 Route::get('/payments', [PaymentsController::class, 'index'])->name('payments');
