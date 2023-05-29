@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class ActionController extends Controller
 {
-    public function delete($actionId)
+    public function delete(Request $Value)
     {
+        $actionId = $Value->action_id;
         $action = Action::find($actionId);
 
         if ($action) {

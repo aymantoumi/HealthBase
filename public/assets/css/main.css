@@ -1,8 +1,16 @@
 
 :root {
-    --main-bg: #cdf8ff;
-    --section-bg: #e0f5f8;
-    --secend-bg: #3c6170;
+    --main-bg: #0A4D68;
+    --section-bg: #CDF2F8;
+    --secend-bg: #0A97A2;
+    --white-100: #F6F1F1 ;
+    --blue: #89C4E1 ;
+    --blue-200: #19A7CE ;
+    --blue-400: #146C94 ;
+    --blue-600: #1F305E ;
+    --green: #42855B ;
+    --red: #CF0A0A ;
+    --black: #191825 ;
 }
 
 * {
@@ -24,4 +32,22 @@ section {
     padding: 1rem 4rem ;
     grid-column: span 4;
     max-height: 100vh;
+}
+
+.red {
+    background-color: var(--red);
+    color: var(--white-100);
+}
+
+.green {
+    background-color: var(--green);
+    color: var(--white-100);
+}
+.logo{
+    display: grid ;
+    justify-items: center;
+}
+.logo img{
+    width: 10rem;
+   aspect-ratio: 1 ; 
 }

@@ -1,5 +1,5 @@
 .home-color div {
-    background-color: var(--secend-bg);
+    background-color: var(--main-bg);
     border-radius: 1.5rem;
     padding: 1.5rem 1rem;
 }
@@ -69,7 +69,7 @@
     font-size: 2.5rem;
     font-weight: bolder;
     text-align: center;
-    color: var(--main-bg);
+    color: var(--section-bg);
 }
 
 .patients-form form div :is(input, select) {
@@ -92,7 +92,7 @@
     gap: .5rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    color: var(--main-bg);
+    color: var(--section-bg) ;
     font-weight: 800;
     font-size: x-large;
 }
@@ -107,6 +107,7 @@
 
 .grid-card :is(.title, .value) {
     grid-column: span 3;
+    color: var(--section-bg);
 }
 
 .button {

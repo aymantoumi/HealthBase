@@ -28,6 +28,7 @@ class PatientController extends Controller
             ->get();
 
         return view('patients', compact('patients'), ['page' => 'Patients']);
+        
     }
 
 
@@ -99,7 +100,6 @@ class PatientController extends Controller
 
     public function changeStatus(Request $request, Patient $Patient)
     {
-        // $Patient = Patient::find($Patient);
 
         $Patient->Status = $request->status;
 

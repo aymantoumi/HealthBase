@@ -64,7 +64,7 @@
                         <option value="Reservation">Reservation</option>
                         <option value="Medical  certification">Medical certification</option>
                     </select>
-                    <select name="gender" id="" >
+                    <select name="gender" id="">
                         <option value="" disabled selected>Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -98,12 +98,13 @@
                         @endif
                         <h3>{{ $patient->First_Name . ' ' . $patient->Last_Name }}</h3>
                         @if ($patient)
-                            <form action="{{ route('patients.changeStatus', ['patient' => $patient] ) }}" method="POST">
+                            <form action="{{ route('patients.changeStatus', ['patient' => $patient]) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="1">
                                 <button type="submit" class="done-button">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADZ0lEQVR4nO2aXYhOQRiAn7XsT1jyE9ZPoZSfFSnFhewSSnZtuXElUZISSaK02TuW9dPKLllSSm5ckHKBuPFTbrTYcoENrXZZitjs+jQ1X22nM3POd87MOd+3zVNvfX2dd2be98yZ9513BhwOh8PhcDgcjqQoA6qAtUAdsFn+XgSUMwwpBeqBVqATGAQyCvkHvAYuApukbsEyEzgNfNUYHCTfgCZgFgXEOOAs0B/DcK/8AU4CFeQ564HPBg33ShewjjykCGgM+L5NiejjMHlEMdCegOFD5ZhiLGOAU8AnoBtoAybbfvPtCRv/ShEdRgEPfJ7vsBleGxM2Xkz/FYqxHNHo7bBhfA0wkLADRFj1Yx7wW6MnQqlRKiyv9n7yTn7jXkYAjwN095p2wJmEjc9owt/uAL0fwESTxs8wnOSEEbHQ+lEJ9AXo7qLA3343MEExltsBuo9kpDJGCdCbsAO2KMayNUT6PB/D1Cds/C3FOCYBXwJ0D2GB1hwGfwdYBSwHrkQwvk9+435cC9B9AYy04YDOkIN/4jOA4zk6YKdiDBsC9ERussSG8eU5bHYO+uiLxehGSP37isVL5AHvQzjASiGlKoe3d0JTDgtKWn4BcxX650L2b3zxy6a+YR3wXVaE/BAh7Y1G94BCb2UOM7AaC9RF2LWNV7Q1W8Z3r85zub32C78dOfRdmw8OyAAP5eD9WAb8HPLsX2CpoV2nFQesieAAIdc12dhGabiuyFEVIfVenfYimPFIg6bdPZoih/gcnkbob6ENB5TFqPmJev82TdtTFP/vj9CXtTBIwOodJP3yMwrLHM8aEVbEbLLGhRgOyO7NF4fs617EPlpsOqAupgOEfNDk+Fm2x2hfHKlZowToMeCEl/IEyY+p8kgsSru9mrBrjGYDDhByV7FjuxmjTXF8Zp3psthgwglXPSv2vhhtiarwNBKi2ZADhLwFLgPPYrYjttuJMVYeP2XyRLoUJXOrVKdwMOIng/KGSSo05IEDxJFYahQBl1I0Xpz+pk5xSk5oU9QOUpsJRxO6IDGQ9rTXITY7Hy2v9lbKXaZDZJPBZCmb5Ig4P5oColJeV4lzlNYj09vEMjwblMga3Xl5CVKXOwzIZ1rkrk5cexl2lAILZJm9VkqN/K+gb4Y6HA6Hw+FwOCgg/gM+9eQkV6NFhQAAAABJRU5ErkJggg==">
+                                    <img
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADZ0lEQVR4nO2aXYhOQRiAn7XsT1jyE9ZPoZSfFSnFhewSSnZtuXElUZISSaK02TuW9dPKLllSSm5ckHKBuPFTbrTYcoENrXZZitjs+jQ1X22nM3POd87MOd+3zVNvfX2dd2be98yZ9513BhwOh8PhcDgcjqQoA6qAtUAdsFn+XgSUMwwpBeqBVqATGAQyCvkHvAYuApukbsEyEzgNfNUYHCTfgCZgFgXEOOAs0B/DcK/8AU4CFeQ564HPBg33ShewjjykCGgM+L5NiejjMHlEMdCegOFD5ZhiLGOAU8AnoBtoAybbfvPtCRv/ShEdRgEPfJ7vsBleGxM2Xkz/FYqxHNHo7bBhfA0wkLADRFj1Yx7wW6MnQqlRKiyv9n7yTn7jXkYAjwN095p2wJmEjc9owt/uAL0fwESTxs8wnOSEEbHQ+lEJ9AXo7qLA3343MEExltsBuo9kpDJGCdCbsAO2KMayNUT6PB/D1Cds/C3FOCYBXwJ0D2GB1hwGfwdYBSwHrkQwvk9+435cC9B9AYy04YDOkIN/4jOA4zk6YKdiDBsC9ERussSG8eU5bHYO+uiLxehGSP37isVL5AHvQzjASiGlKoe3d0JTDgtKWn4BcxX650L2b3zxy6a+YR3wXVaE/BAh7Y1G94BCb2UOM7AaC9RF2LWNV7Q1W8Z3r85zub32C78dOfRdmw8OyAAP5eD9WAb8HPLsX2CpoV2nFQesieAAIdc12dhGabiuyFEVIfVenfYimPFIg6bdPZoih/gcnkbob6ENB5TFqPmJev82TdtTFP/vj9CXtTBIwOodJP3yMwrLHM8aEVbEbLLGhRgOyO7NF4fs617EPlpsOqAupgOEfNDk+Fm2x2hfHKlZowToMeCEl/IEyY+p8kgsSru9mrBrjGYDDhByV7FjuxmjTXF8Zp3psthgwglXPSv2vhhtiarwNBKi2ZADhLwFLgPPYrYjttuJMVYeP2XyRLoUJXOrVKdwMOIng/KGSSo05IEDxJFYahQBl1I0Xpz+pk5xSk5oU9QOUpsJRxO6IDGQ9rTXITY7Hy2v9lbKXaZDZJPBZCmb5Ig4P5oColJeV4lzlNYj09vEMjwblMga3Xl5CVKXOwzIZ1rkrk5cexl2lAILZJm9VkqN/K+gb4Y6HA6Hw+FwOCgg/gM+9eQkV6NFhQAAAABJRU5ErkJggg==">
                                 </button>
                             </form>
                         @endif

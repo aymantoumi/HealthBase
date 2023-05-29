@@ -6,6 +6,19 @@
         $birth_date = Carbon::parse($patient->Birth_Date);
         $age = $birth_date->diffInYears(Carbon::now());
     @endphp
+
+    <div id="deleteModal" class="deleteModal">
+        <form action="{{ route('actions.delete') }}" method="POST">
+            <h2>Are you sure you want to delete this action?</h2>
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="action_id" id="action_id">
+            <div class="buttons">
+                <button class="button s-button red">Delete Action</button>
+                <button class="button  s-button cnacel-delete green">Cancel</button>
+            </div>
+        </form>
+    </div>
     <section class="patient-update-grid patient-update-color ">
         <div class="patient-data patient-grid">
             <div class="side-card">
@@ -14,11 +27,6 @@
                 <caption>{{ $patient->First_Name . ' ' . $patient->Last_Name }}</caption>
                 <span> Gender : {{ $patient->Gender }}</span>
                 <span>Age : {{ $age }}</span>
-                <form action="{{ route('patients.destroy', $patient->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="button red">Delete</button>
-                </form>
             </div>
             <div class="main-card">
                 <div class="content">
@@ -52,11 +60,7 @@
                         <h4>{{ $action->Action }}</h4>
                         <span>{{ date('m/d/Y', strtotime($action->created_at)) }}</span>
                         <span>{{ $action->Payment . ' DH' }}</span>
-                        <form action="{{ route('actions.delete', ['action' => $action->id]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="button s-button">Delete</button>
-                        </form>
+                        <button class="button s-button deleteAction red" value="{{ $action->id }}">Delete</button>
                     </div>
                 @endforeach
             </div>
@@ -114,9 +118,29 @@
                     </select>
                 </div>
                 <div>
-                    <button type="submit" class="button">Add Action</button>
+                    <button type="submit" class="button green">Add Action</button>
                 </div>
             </form>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function() {
+            $('.deleteAction').click(function(e) {
+                e.preventDefault();
+
+                var actionID = $(this).val();
+                $('#action_id').val(actionID);
+                $('#deleteModal').css('z-index', 1);
+                $('#deleteModal').modal('show');
+            });
+
+            $('.cnacel-delete').click(function (e) {
+                e.preventDefault();
+
+                $('#deleteModal').css('z-index', -1);
+            });
+
+        });
+    </script>
 @endsection

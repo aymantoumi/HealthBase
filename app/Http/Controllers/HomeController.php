@@ -13,11 +13,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $Patient = Patient::all()->sortDesc();
-        $TotalPatients = Patient::count();
-        $WaitingPatients = Patient::where('status', 0)->count();
-        $DonePatients = Patient::where('status', 1)->count();
-        return view('home', ['page' => 'home', 'patients' => $Patient, 'TotalPatients' => $TotalPatients, 'waiting' => $WaitingPatients, 'done' => $DonePatients]);
+        $today = date('Y-m-d');
+        $Patient = Patient::whereDate('created_at', $today)->get();
+        $TotalPatients = Patient::whereDate('created_at', $today)->count();
+        $WaitingPatients = Patient::whereDate('created_at', $today)->where('status', 0)->count();
+        $DonePatients = Patient::whereDate('created_at', $today)->where('status', 1)->count();
+        return view('home', [
+            'page' => 'home', 
+            'patients' => $Patient, 
+            'TotalPatients' => $TotalPatients, 
+            'waiting' => $WaitingPatients, 
+            'done' => $DonePatients
+        ]);
     }
 
     /**
@@ -35,7 +42,7 @@ class HomeController extends Controller
     {
         $patient = new Patient();
         $action = new  Action();
-    
+
         $patient->First_Name = $request->firstName;
         $patient->Last_Name = $request->lastName;
         $patient->CIN = $request->CIN;
@@ -43,16 +50,16 @@ class HomeController extends Controller
         $patient->Gender = $request->gender;
         $patient->Category = $request->category;
         $patient->Phone = $request->phoneNumber;
-        
+
         $patient->save();
-        
+
         $action = new Action();
         $action->Action = $request->reason;
         $action->Payment = $request->payment;
         $patient->actions()->save($action);
-    
-         return redirect()->back() ;
-    }    
+
+        return redirect()->back();
+    }
 
     /**
      * Display the specified resource.

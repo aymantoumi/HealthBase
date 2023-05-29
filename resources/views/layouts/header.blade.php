@@ -1,8 +1,6 @@
 <header class="main-header header-grid">
     <div class="logo">
-        <h3>
-            HealthBase
-        </h3>
+        <img src="{{ asset('assets/images/2.png') }}" alt="" srcset="">
     </div>
     <nav class="nav-main nav-grid ">
         <a href="{{ route('index') }}" class="@if ($page === 'home')

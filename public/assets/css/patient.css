@@ -1,7 +1,7 @@
 .patients-section-grid {
     display: grid;
-    grid-template-rows: 1fr 8fr;
-    gap: 1rem;
+    grid-template-rows: .5fr .5fr 6fr;
+    gap: .1rem;
 }
 
 .search-bar input {
@@ -30,20 +30,25 @@
     grid-template-columns: 2fr 1fr;
 }
 
+.patients-list {
+    height: fit-content ;
+}
+
 .titles-grid,
 .patients-box {
     display: grid;
     grid-template-columns: 1.5fr repeat(6, 1fr) 1.5fr;
     gap: .5rem;
+    /* padding: .2rem 0rem ; */
 }
 
 .title {
-    background-color: var(--secend-bg);
+    background-color: var(--main-bg);
     border-radius: .5rem;
     padding: .5rem 1rem;
     font-weight: 700;
     text-align: center;
-    color: var(--main-bg);
+    color: var(--section-bg);
 }
 
 .patients-box {
@@ -51,14 +56,20 @@
     background-color: var(--secend-bg);
     padding: .3rem 0rem;
     border-radius: 1rem;
-    padding: 0rem, 5rem;
+    padding: .5rem .1rem;
 }
 
 .patients-box div {
     padding: .4rem 0rem;
     text-align: center;
-    background-color: var(--main-bg);
+    background-color: var(--section-bg);
     border-radius: .5rem;
+}
+
+.patients-box div a{
+    text-decoration: none ;
+    font-weight: 700 ;
+    color: var(--main-bg );
 }
 
 .view {
@@ -72,17 +83,17 @@
 ------------- SINGL PATIENT GSTYLE -------------
 */
 .patient-update-grid div {
-    border-radius: 1rem ;
+    border-radius: 1rem;
 }
 
 .patient-update-grid {
-    display: grid ;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr );
-    gap: 1rem ;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
     text-align: center;
-    color: var(--main-bg);
-    padding: 1rem ;
+    color: var(--section-bg);
+    padding: 1rem;
 }
 
 
@@ -91,29 +102,29 @@
     grid-column: span 3;
 }
 
-.patients-update-form-grid{
+.patients-update-form-grid {
     grid-row: span 3;
-    grid-column: span 2; 
+    grid-column: span 2;
 }
 
 .side-form {
     grid-row: span 3;
-    background-color: var(--secend-bg );
+    background-color: var(--main-bg);
 }
 
 .side-form form {
-    height: 100% ;
-    display: grid ;
+    height: 100%;
+    display: grid;
     align-items: center;
     justify-items: center;
-    gap: 1rem ;
+    gap: 1rem;
 }
 
 .patients-update-form {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns:  1fr;
-    background-color: var(--secend-bg);
+    grid-template-columns: 1fr;
+    background-color: var(--main-bg);
 }
 
 .patients-update-form form {
@@ -137,7 +148,8 @@
     justify-items: center;
 }
 
-.patients-update-form form div :is(input, select), .side-form form div :is(input, select) {
+.patients-update-form form div :is(input, select),
+.side-form form div :is(input, select) {
     padding: .5rem 1rem;
     border-radius: 1rem;
     font-weight: 800;
@@ -148,54 +160,78 @@
 }
 
 .side-card {
-    display: grid ;
-    align-items: center ;
-    justify-items: center ;
-    font-size: 2rem ;
-    font-weight: 800 ;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 2rem;
+    font-weight: 800;
     color: rgb(188, 210, 216);
 }
+
 .patient-grid {
-    display: grid ;
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem ;
+    gap: 1rem;
 }
 
-.patient-data div{
-    background-color: var(--secend-bg);
+.patient-data div {
+    background-color: var(--main-bg);
 }
 
 .main-card {
     grid-column: span 3;
-    padding: .2rem 1rem ;
+    padding: .2rem 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-items: start;
     align-items: center;
 }
+
 .content-title {
-    font-weight: 800 ;
-    font-size: 1.6rem !important ;
-    color: rgb(188, 210, 216) ;
+    font-weight: 800;
+    font-size: 1.6rem !important;
+    color: rgb(188, 210, 216);
 }
+
 .main-card span {
-    font-weight: 600 ;
-    font-size: 1.2rem ;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
+
 .actions-card {
-    display: grid ;
-    overflow-y: scroll ;
-    padding: .5rem 0.1rem ;
-    gap: .2rem ;
+    display: grid;
+    overflow-y: scroll;
+    padding: .5rem 0.1rem;
+    gap: .2rem;
 }
+
 .action-card {
-    color: var(--secend-bg);
-    background-color: var(--main-bg) !important;
-    height: fit-content ;
-    padding: .5rem 0rem ;
+    color: var(--main-bg);
+    background-color: var(--section-bg) !important;
+    height: fit-content;
+    padding: .5rem 0rem;
 }
 
 .s-button {
-    transform: scale(.8);
+    font-size: large ;
+}
+
+.deleteModal {
+    position: absolute;
+    z-index: -3;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(250, 235, 215, 0.274);
+}
+
+.deleteModal form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: azure;
+    padding: 2rem 3.5rem;
+    border-radius: 1rem;
+    display: grid;
 }
